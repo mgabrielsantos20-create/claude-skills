@@ -1,4 +1,9 @@
 #!/bin/bash
+# Só roda na nuvem. No Mac ele duplicaria as skills (instala minhas-skills por cima de ~/.claude/skills).
+if [ "$(uname)" = "Darwin" ]; then
+  echo "Este script é para a nuvem (claude.ai/code > ambiente Default > Script de configuração). No Mac não faz nada."
+  exit 0
+fi
 # Script de configuração da nuvem: instala marketplaces e plugins do Mac do Gabriel.
 # A lista vem de plugins.json, gerado pelo sync.sh a partir do ~/.claude/settings.json do Mac.
 # Plugin novo instalado no Mac chega aqui sozinho, sem mudar este script.
