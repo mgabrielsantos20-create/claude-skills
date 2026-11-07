@@ -39,3 +39,8 @@ if [ ! -d "$HOME/.claude/skills/gstack" ]; then
   git clone -q --depth 1 https://github.com/garrytan/gstack.git "$HOME/.claude/skills/gstack" \
     && (cd "$HOME/.claude/skills/gstack" && ./setup --host claude --no-browser) || true
 fi
+
+# MCPs de navegador e shadcn: instalados antes da sessão, para não baixar na hora e estourar o tempo.
+# O Chrome stable atende o playwright-mcp e o chrome-devtools-mcp.
+npm i -g @playwright/mcp chrome-devtools-mcp shadcn || true
+npx -y playwright install --with-deps chrome || true
