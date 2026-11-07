@@ -1,0 +1,43 @@
+{
+  "marketplaces": [
+    "21st-dev/claude-code-plugin",
+    "AThevon/genjutsu",
+    "JuliusBrussee/caveman",
+    "VoltAgent/awesome-claude-code-subagents",
+    "anthropics/skills",
+    "apify/apify-claude-code-plugin",
+    "coreyhaines31/marketingskills",
+    "heygen-com/hyperframes",
+    "jarrodwatts/claude-hud",
+    "mercadopago/mercadopago-claude-marketplace",
+    "mvanhorn/last30days-skill",
+    "nextlevelbuilder/ui-ux-pro-max-skill",
+    "obra/superpowers-marketplace",
+    "rampstackco/claude-skills",
+    "sergebulaev/instagram-skills",
+    "supabase/agent-skills",
+    "thedotmack/claude-mem"
+  ],
+  "plugins": [
+    "21st@21st",
+    "apify@apify",
+    "caveman@caveman",
+    "claude-hud@claude-hud",
+    "claude-mem@thedotmack",
+    "document-skills@anthropic-agent-skills",
+    "example-skills@anthropic-agent-skills",
+    "genjutsu@genjutsu",
+    "hyperframes@hyperframes",
+    "instagram-skills@instagram-skills",
+    "last30days@last30days-skill",
+    "marketing-skills@marketingskills",
+    "mercadopago@mercadopago-claude-marketplace",
+    "postgres-best-practices@supabase-agent-skills",
+    "rampstack-skills@rampstack",
+    "supabase@supabase-agent-skills",
+    "superpowers@superpowers-marketplace",
+    "ui-ux-pro-max@ui-ux-pro-max-skill",
+    "voltagent-data-ai@voltagent-subagents",
+    "voltagent-qa-sec@voltagent-subagents"
+  ]
+}

@@ -23,6 +23,18 @@ rsync -a --delete --delete-excluded --exclude "obsidian.md" --exclude "protecao-
 cp "$HOME/.claude/CLAUDE.md" "$INSTR/CLAUDE.md"
 sed -i '' "s#$HOME#~#g" "$INSTR"/*.md
 
+# Lista de plugins para a nuvem (lida pelo setup-nuvem.sh): marketplaces do GitHub e plugins ativos.
+python3 - "$HOME/.claude/settings.json" "$REPO/plugins.json" <<'PY'
+import json, sys
+s = json.load(open(sys.argv[1]))
+mk = {k: v["source"]["repo"] for k, v in s.get("extraKnownMarketplaces", {}).items()
+      if v.get("source", {}).get("source") == "github"}
+plugins = sorted(p for p, on in s.get("enabledPlugins", {}).items()
+                 if on and p.split("@")[-1] in mk and p.split("@")[-1] != "gabriel-skills")
+repos = sorted({mk[p.split("@")[-1]] for p in plugins})
+json.dump({"marketplaces": repos, "plugins": plugins}, open(sys.argv[2], "w"), indent=2)
+PY
+
 cd "$REPO"
 git add -A
 if ! git diff --cached --quiet; then
