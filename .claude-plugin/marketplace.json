@@ -1,0 +1,11 @@
+{
+  "name": "gabriel-skills",
+  "owner": { "name": "Gabriel Santos" },
+  "plugins": [
+    {
+      "name": "minhas-skills",
+      "source": "./plugins/minhas-skills",
+      "description": "Skills pessoais do Gabriel, sincronizadas de ~/.claude/skills"
+    }
+  ]
+}

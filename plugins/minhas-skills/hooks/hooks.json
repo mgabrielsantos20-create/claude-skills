@@ -1,0 +1,31 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/instrucoes.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/instalar-gstack.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Skill check: before answering, scan the available skills list and invoke (Skill tool) the 1-3 skills that match this request, per ~/.claude/rules/skills-por-area.md. The user writes in Portuguese; match by meaning. Skip only for trivial requests.\"}}'",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
