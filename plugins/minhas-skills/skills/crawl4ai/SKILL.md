@@ -15,11 +15,12 @@ WebSearch e depois raspe os resultados com esta skill.
 
 ## Como usar
 
-Rode o script incluído com o Python do sistema. Use o caminho absoluto, porque a pasta
-Scripts do Python não está no PATH:
+O crawl4ai está instalado num venv próprio com Python 3.12 (macOS), em `~/.venvs/crawl4ai`.
+Não use o `python3` do sistema: ele é 3.15 e não tem o crawl4ai (algumas dependências não
+têm wheel para 3.15). Rode sempre com o Python do venv:
 
 ```bash
-python "C:/Users/mgabr/.claude/skills/crawl4ai/scripts/crawl.py" URL [URL ...] [opções]
+CRAWL4AI_NO_CLOUD_NOTICE=1 ~/.venvs/crawl4ai/bin/python ~/.claude/skills/crawl4ai/scripts/crawl.py URL [URL ...] [opções]
 ```
 
 Por padrão ele salva um `.md` por página em `./crawl_output/` (relativo ao diretório atual)
@@ -45,9 +46,11 @@ páginas ou páginas longas, para não encher o contexto.
 - **403/bloqueio**: `--stealth`. Se ainda falhar, avise o usuário: alguns sites exigem login ou
   bloqueiam qualquer robô, e não tente burlar captcha.
 - **Timeout**: aumente com `--timeout 120`.
-- **Erro de navegador não encontrado**: rode
-  `"C:/Users/mgabr/AppData/Local/Python/pythoncore-3.14-64/Scripts/crawl4ai-setup.exe"` e tente de novo.
-- **Para diagnóstico geral**: `crawl4ai-doctor.exe` na mesma pasta Scripts.
+- **Erro de navegador não encontrado**: rode `~/.venvs/crawl4ai/bin/crawl4ai-setup` e tente de novo.
+- **Para diagnóstico geral**: `~/.venvs/crawl4ai/bin/crawl4ai-doctor`.
+- **Venv sumiu ou quebrou** (`No module named 'crawl4ai'`): recrie com
+  `uv venv --python 3.12 ~/.venvs/crawl4ai && VIRTUAL_ENV=~/.venvs/crawl4ai uv pip install crawl4ai`
+  e depois rode o `crawl4ai-setup`.
 
 ## Uso avançado
 
